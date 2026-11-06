@@ -17,3 +17,12 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 | **Cliente** (institucional) | A universidade (por exemplo, os serviços de ação social). Define as regras de utilização e os requisitos para ser estafeta, acompanha os KPIs (tempo de entrega, volume de pedidos, ganhos dos estafetas) e o cumprimento do SLA |
 | **Administrador da plataforma** | Gere contas de utilizador e perfis, monitoriza o estado da plataforma |
 | **Sistemas externos** | Gateway de pagamento (sandbox, por exemplo cartão/MB WAY), simulador de telemetria da frota (ver [4.4](#44-simulador-de-telemetria)), fornecedor de identidade (SSO da universidade, opcional), serviço de mapas/geocodificação (moradas de entrega e rotas), consumidores de dados abertos (feed GBFS) |
+
+
+### 4.3 Out of scope
+
+- Faturação ao cliente institucional (faturação B2B).
+- Integração com hardware real de veículos ou IoT.
+- Aplicações móveis nativas (uma interface web responsiva é suficiente).
+- Telemetria dos hubs.
+- Pagamentos reais.
