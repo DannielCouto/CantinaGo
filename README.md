@@ -19,6 +19,25 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 | **Sistemas externos** | Gateway de pagamento (sandbox, por exemplo cartão/MB WAY), simulador de telemetria da frota (ver [4.4](#44-simulador-de-telemetria)), fornecedor de identidade (SSO da universidade, opcional), serviço de mapas/geocodificação (moradas de entrega e rotas), consumidores de dados abertos (feed GBFS) |
 
 
+## Épicos
+ 
+| ID  | Épico                                   | Objetivo                                                            |
+|-----|-----------------------------------------|---------------------------------------------------------------------|
+| E1  | Contas, autenticação e perfis           | Login com a conta UA e papéis de cliente, estafeta, staff e admin.  |
+| E2  | Catálogo e ementas                      | O que cada ponto de venda tem disponível, e quando.                 |
+| E3  | Encomenda e pagamento                   | Do carrinho à confirmação, com local e hora de entrega.             |
+| E4  | Gestão de pedidos no ponto de venda     | Preparar, marcar como pronto e passar ao estafeta.                  |
+| E5  | Disponibilidade e turnos dos estafetas  | Entregas encaixadas nos tempos livres entre aulas.                  |
+| E6  | Atribuição e despacho de entregas       | Juntar cada pedido ao estafeta e à e-bike certos.                   |
+| E7  | Gestão da frota de e-bikes              | Reserva, bateria e manutenção das bicicletas da UA.                 |
+| E8  | Localização e zonas de entrega          | Mapa do campus com edifícios e salas, e a área de serviço.          |
+| E9  | Acompanhamento e notificações           | Estado do pedido em tempo real até à entrega.                       |
+| E10 | Ganhos e pagamentos aos estafetas       | Quanto cada estafeta ganha e como recebe.                           |
+| E11 | Avaliações, suporte e incidentes        | Resolver o que corre mal, para clientes e estafetas.                |
+| E12 | Backoffice e análise                    | Indicadores e configuração do serviço.                              |
+ 
+
+
 ### 4.3 Out of scope
 
 - Faturação ao cliente institucional (faturação B2B).
