@@ -35,6 +35,37 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 | E10 | Ganhos e pagamentos aos estafetas       | Quanto cada estafeta ganha e como recebe.                           |
 | E11 | Avaliações, suporte e incidentes        | Resolver o que corre mal, para clientes e estafetas.                |
 | E12 | Backoffice e análise                    | Indicadores e configuração do serviço.                              |
+
+## Personas
+ 
+### Inês Carvalho — cliente (estudante)
+- 20 anos, 2.º ano de Biologia, vive na residência de Santiago.
+- Tem aulas e laboratórios espalhados pelo dia e muitas vezes não tem tempo para ir à cantina.
+- Usa o telemóvel para tudo e paga com MB Way.
+- **Objetivo:** comer uma refeição barata e quente sem perder tempo em filas.
+- **Frustração:** chegar à cantina e ter uma fila interminável.
+### Prof. Rui Matos — cliente (docente)
+- 47 anos, docente no DETI, gabinete no edifício 4.
+- Dá aulas seguidas e tem reuniões à hora de almoço.
+- **Objetivo:** receber o almoço no gabinete à hora certa, sem ter de pensar nisso.
+- **Frustração:** serviços de entrega externos que não encontram o edifício nem o gabinete ou não podem entrar até a porta do edifício.
+### Tiago Almeida — estafeta (estudante)
+- 21 anos, 3.º ano de Engenharia Mecânica, vive num quarto alugado perto do campus.
+- Tem furos no horário e quer ganhar dinheiro sem um emprego de horário fixo.
+- Não tem carro nem bicicleta própria.
+- **Objetivo:** fazer entregas nos tempos livres e saber quanto vai ganhar.
+- **Frustração:** trabalhos que não respeitam o horário das aulas e das épocas de exames ou que necessitam de veiculo proprio.
+### Fernanda Sousa — staff (cantina do Crasto)
+- 52 anos, trabalha na cantina do Crasto há 15 anos.
+- À hora de almoço tem fila ao balcão e pouco tempo para olhar para ecrãs.
+- **Objetivo:** preparar os pedidos por ordem e entregá-los ao estafeta certo, sem confusões.
+- **Frustração:** pedidos que chegam todos ao mesmo tempo ou de pratos que já acabaram.
+### Marta Ribeiro — administração (SASUA)
+- 38 anos, responsável pelo CantinaGo nos Serviços de Ação Social.
+- Gere a frota de e-bikes, os estafetas e os pagamentos.
+- **Objetivo:** manter o serviço fiável e sustentável, com bicicletas operacionais e estafetas suficientes nas horas de ponta.
+- **Frustração:** não ter dados para justificar o serviço junto da reitoria.
+---
  
 
 
