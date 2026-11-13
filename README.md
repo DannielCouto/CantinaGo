@@ -45,3 +45,13 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 - Aplicações móveis nativas (uma interface web responsiva é suficiente).
 - Telemetria dos hubs.
 - Pagamentos reais.
+
+## 6.1 Papéis
+
+| Papel | Membro | Responsabilidades |
+|-------|--------|-------------------|
+| **Team Coordinator** | Daniel Couto | Garante uma distribuição justa das tarefas e que os membros trabalham de acordo com o plano; promove a colaboração e age cedo perante problemas; garante que os resultados são entregues a tempo |
+| **Product Owner** | Daniel Couto | Representa os stakeholders e conhece o domínio; clarifica as funcionalidades esperadas para a equipa; aceita os incrementos das histórias |
+| **QA Engineer** | Alan Marques | Promove as práticas de QA em conjunto com os outros papéis; configura as ferramentas que medem a qualidade; verifica que a equipa segue as práticas acordadas, incluindo as regras de uso de IA |
+| **DevOps Master** | Ricardo Rebelo | Responsável pela infraestrutura de desenvolvimento e produção: repositório, pipelines, contentores, ambiente de deployment, bases de dados |
+| **Developer** | Todos (Daniel Couto, Ricardo Rebelo, Alan Marques) | Implementa e testa histórias; as contribuições são registadas através de pull requests e commits |
