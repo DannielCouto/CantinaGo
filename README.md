@@ -36,6 +36,58 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 | E10 | Avaliações, suporte e incidentes        | Resolver o que corre mal, para clientes e estafetas.                |
 | E11 | Análise de indicadores                  | Indicadores do serviço para o avaliar e planear.                    |
 
+
+## Histórias de utilizador
+ 
+### E1 — Contas, autenticação e perfis
+- **US1.1** (SCRUM-28) Como membro da UA, quero entrar com a minha conta universitária, para não ter de criar outra conta.
+- **US1.2** (SCRUM-29) Como estudante, quero poder criar um perfil de estafeta, para poder fazer entregas.
+- **US1.3** (SCRUM-30) Como administradora, quero aprovar estafetas, para garantir que só fazem entregas pessoas preparadas.
+### E2 — Catálogo e ementas
+- **US2.1** (SCRUM-31) Como cliente, quero ver as ementas do dia de cada ponto de venda, com preços e descrições, para escolher o que comer.
+- **US2.2** (SCRUM-32) Como staff, quero marcar um prato como esgotado, para que não seja encomendado.
+- **US2.3** (SCRUM-33) Como staff, quero definir o horário em que aceito encomendas, para não receber mais pedidos passado certo horário.
+### E3 — Encomenda e acompanhamento do pedido
+- **US3.1** (SCRUM-34) Como cliente, quero escolher o local de entrega (sala, laboratório, residência ou morada perto do campus), para receber onde estou.
+- **US3.2** (SCRUM-35) Como cliente, quero agendar a entrega para uma hora específica, para a receber quando tenho disponibilidade.
+- **US3.3** (SCRUM-36) Como cliente, quero pagar com MB Way ou cartão, para usar o meio de pagamento que me é mais conveniente.
+- **US3.4** (SCRUM-37) Como cliente, quero cancelar o pedido antes de a preparação começar, para ser reembolsado caso mude de planos.
+- **US3.5** (SCRUM-38) Como cliente, quero ver o estado do pedido em tempo real, para acompanhar a entrega.
+- **US3.6** (SCRUM-39) Como cliente, quero ser avisado quando o estafeta estiver a chegar, para estar à porta.
+- **US3.7** (SCRUM-40) Como estafeta, quero confirmar a entrega com um código dado pelo cliente, para provar que entreguei à pessoa certa.
+### E4 — Gestão de pedidos no ponto de venda
+- **US4.1** (SCRUM-41) Como staff, quero ver os pedidos ordenados pela hora de recolha, para organizar a preparação.
+- **US4.2** (SCRUM-42) Como staff, quero marcar um pedido como pronto, para avisar o estafeta.
+- **US4.3** (SCRUM-43) Como staff, quero confirmar a entrega ao estafeta lendo um QR, para não trocar sacos.
+### E5 — Disponibilidade e turnos dos estafetas
+- **US5.1** (SCRUM-44) Como estafeta, quero ligar e desligar o estado "disponível", para só receber pedidos quando posso.
+- **US5.2** (SCRUM-45) Como estafeta, quero indicar os meus tempos livres na semana, para que a app não me proponha turnos durante as aulas.
+- **US5.3** (SCRUM-46) Como administradora, quero ver quantos estafetas estão previstos por hora, para saber quando faltam pessoas.
+### E6 — Atribuição e despacho de entregas
+- **US6.1** (SCRUM-47) Como estafeta, quero aceitar ou recusar um pedido num tempo limite, para decidir se o consigo fazer.
+- **US6.2** (SCRUM-48) Como estafeta, quero conseguir agrupar vários pedidos para o mesmo destino, para os fazer numa só viagem.
+- **US6.3** (SCRUM-49) Como sistema, quero propor pedidos tendo em conta a distância e a bateria da e-bike, para que as entregas sejam rápidas e possíveis.
+- **US6.4** (SCRUM-50) Como administradora, quero reatribuir um pedido à mão, para resolver casos em que o estafeta já não pode efetuar a entrega.
+### E7 — Gestão da frota de e-bikes
+- **US7.1** (SCRUM-54) Como estafeta, quero reservar e desbloquear uma e-bike pela app, para começar o turno sem depender de terceiros.
+- **US7.2** (SCRUM-55) Como estafeta, quero reportar uma avaria e trocar de bicicleta, para não perder o tempo de trabalho.
+- **US7.3** (SCRUM-56) Como administradora, quero ver a localização, a bateria e o estado de cada bicicleta, para planear a manutenção.
+### E8 — Localização e zonas de entrega
+- **US8.1** (SCRUM-51) Como cliente, quero escolher o edifício e a sala a partir de uma lista (caso a entrega seja dentro da Universidade), para não ter de escrever moradas.
+- **US8.2** (SCRUM-52) Como estafeta, quero indicações até à entrada do edifício, para não perder tempo à procura.
+- **US8.3** (SCRUM-53) Como administradora, quero definir a área de serviço no mapa, para que só sejam aceites pedidos dentro dela.
+### E9 — Ganhos e pagamentos aos estafetas
+- **US9.1** (SCRUM-57) Como estafeta, quero ver quanto ganhei por entrega, por dia e por mês, para controlar os meus rendimentos.
+- **US9.2** (SCRUM-58) Como cliente, quero ter a opção de dar gorjeta ao estafeta, para agradecer um bom serviço.
+- **US9.3** (SCRUM-59) Como administradora, quero gerar os pagamentos mensais/semanais dos estafetas, para pagar a tempo e sem erros.
+### E10 — Avaliações, suporte e incidentes
+- **US10.1** (SCRUM-60) Como cliente, quero avaliar a entrega, para ajudar a melhorar o serviço.
+- **US10.2** (SCRUM-61) Como cliente, quero reportar um problema com fotografia, para pedir reembolso.
+- **US10.3** (SCRUM-62) Como estafeta, quero reportar um incidente (cliente ausente, acidente), para ficar registado e ter apoio.
+### E11 — Análise de indicadores
+- **US11.1** (SCRUM-63) Como administradora, quero ver o número de entregas, o tempo médio e a taxa de cancelamento, para avaliar o serviço.
+- **US11.2** (SCRUM-64) Como responsável da cantina, quero ver os pratos mais pedidos por entrega, para planear a produção.
+
 ## Personas
  
 ### Inês Carvalho — cliente (estudante)
@@ -66,6 +118,24 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 - **Objetivo:** manter o serviço fiável e sustentável, com bicicletas operacionais e estafetas suficientes nas horas de ponta.
 - **Frustração:** não ter dados para justificar o serviço junto da reitoria.
 ---
+ 
+
+## Cenários
+ 
+### C1 — Almoço entre aulas (Prof. Rui) · E1, E2, E3
+Às 10h50, no intervalo, o Rui abre a app com a conta UA e vê a ementa da cantina do Crasto. Escolhe o prato do dia, seleciona "DETI — Gabinete 4.2.15" e agenda a entrega para as 13h05, quando acaba a aula. Paga com MB Way. Às 13h00 recebe uma notificação de que o estafeta está a chegar. Ao chegar, dá o código de 4 dígitos ao estafeta e a entrega fica confirmada.
+ 
+### C2 — O primeiro turno do Tiago · E1, E5, E6, E7
+O Tiago ativa o perfil de estafeta e é aprovado depois de fazer a formação de segurança. Indica que está livre às terças entre as 12h e as 14h. Na terça, liga o estado "disponível", reserva uma e-bike na doca da biblioteca e desbloqueia-a com a app. Recebe um pedido da cantina do Crasto para o edifício 4, aceita-o e recebe logo um segundo pedido para o mesmo edifício. Faz as duas entregas numa só viagem.
+ 
+### C3 — Hora de ponta na cantina do Crasto · E2, E4
+Às 12h30, a Fernanda vê no tablet do balcão a fila de pedidos ordenada pela hora de recolha. O prato de peixe acaba, e ela marca-o como esgotado para que deixe de aparecer na app. Quando um pedido fica pronto, marca-o como "pronto". O estafeta chega, mostra o QR e ela entrega o saco certo.
+ 
+### C4 — Jantar na residência que corre mal · E3, E8, E10
+A Inês encomenda o jantar para a residência de Santiago, bloco B. O estafeta segue as indicações até à entrada do bloco e faz a entrega, mas falta a sopa. A Inês reporta o problema na app com uma fotografia, e o reembolso parcial é aprovado no próprio dia.
+ 
+### C5 — Fecho do mês · E7, E9, E11
+No fim do mês, a Marta abre o painel de indicadores: vê o número de entregas, o tempo médio de entrega e as horas com falta de estafetas. Duas e-bikes estão com a bateria degradada e ela marca-as para manutenção. Gera os pagamentos dos estafetas, e o Tiago vê na app o total do mês com as gorjetas incluídas.
  
 
 
