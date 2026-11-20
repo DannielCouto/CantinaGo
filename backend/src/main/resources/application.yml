@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: cantinago
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/cantinago}
+    username: ${DB_USER:cantinago}
+    password: ${DB_PASSWORD:cantinago}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  mvc:
+    problemdetails:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+cantinago:
+  rules:
+    min-battery: 20
+  mqtt:
+    enabled: ${MQTT_ENABLED:true}
+    broker-url: ${MQTT_URL:tcp://localhost:1883}
+    client-id: ${MQTT_CLIENT_ID:cantinago-backend}
+    topic: cantinago/telemetry/+
