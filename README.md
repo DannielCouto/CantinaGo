@@ -112,11 +112,20 @@ O CantinaGo é um serviço de entregas da universidade. Os estudantes usam e-bik
 - À hora de almoço tem fila ao balcão e pouco tempo para olhar para ecrãs.
 - **Objetivo:** preparar os pedidos por ordem e entregá-los ao estafeta certo, sem confusões.
 - **Frustração:** pedidos que chegam todos ao mesmo tempo ou de pratos que já acabaram.
-### Marta Ribeiro — administração (SASUA)
+### Marta Ribeiro — gestora do serviço (SASUA, cliente institucional)
 - 38 anos, responsável pelo CantinaGo nos Serviços de Ação Social.
-- Gere a frota de e-bikes, os estafetas e os pagamentos.
+- Define as regras do serviço, aprova os estafetas e acompanha os KPIs e o cumprimento do SLA pelo operador.
 - **Objetivo:** manter o serviço fiável e sustentável, com bicicletas operacionais e estafetas suficientes nas horas de ponta.
 - **Frustração:** não ter dados para justificar o serviço junto da reitoria.
+### Sofia Martins — coordenadora de operações (MoveLeve, operador)
+- 34 anos, coordena a operação da frota da MoveLeve no campus da UA.
+- Planeia a manutenção, a redistribuição de e-bikes entre estações e o trabalho dos técnicos.
+- **Objetivo:** cumprir o SLA de disponibilidade com o menor número de deslocações.
+- **Frustração:** só saber de uma avaria quando um estafeta se queixa.
+### João Pereira — técnico de campo (MoveLeve)
+- 29 anos, mecânico de bicicletas, faz a ronda das estações numa carrinha.
+- **Objetivo:** saber que reparações tem e por que ordem, sem telefonemas.
+- **Frustração:** chegar a uma estação e não encontrar a bicicleta ou a avaria descrita.
 ---
  
 
