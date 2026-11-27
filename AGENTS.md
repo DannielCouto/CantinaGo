@@ -27,7 +27,7 @@ never HTTP. External systems (MQTT, payment gateway) sit behind adapters.
 ```bash
 cd backend && mvn verify          # unit (*Test, Surefire) + integration/Cucumber (*IT, Failsafe; needs Docker)
 cd backend && mvn test            # unit tests only, no Docker
-cd frontend && npm ci && npm test # Vitest
+cd frontend && npm ci && npm test # Vitest (needs Node >= 22.19, e.g. `nvm use 22`)
 cd frontend && npm run lint       # oxlint
 docker compose up --build         # full stack at http://localhost:8000
 ```
@@ -50,6 +50,24 @@ docker compose up --build         # full stack at http://localhost:8000
 - Time-dependent logic uses the injected `java.time.Clock`, never `Instant.now()` directly.
 - Test data is synthetic. Never put real personal data, secrets or credentials in code, tests,
   config or prompts.
+
+## Xray
+
+Jira site `cantinago.atlassian.net`, project `SCRUM`. The CI job "Import test results into Xray"
+runs only on pushes to `main` and needs the repo secrets `XRAY_CLIENT_ID` and `XRAY_CLIENT_SECRET`
+(set them in GitHub → Settings → Secrets and variables → Actions). On each run it:
+
+1. imports the `.feature` files (`/import/feature`), which creates or updates one Xray Test per
+   scenario and links it to the story from the feature tag;
+2. imports the Cucumber results, matched to Tests by the scenario's Test key tag;
+3. imports the JUnit results (unit and integration tests), creating Tests on first sight.
+
+For a new scenario: merge it, let the next `main` run create its Test (the key is in the job log
+and in Jira), then tag the scenario with that key (`@BR1 @SCRUM-66`). Until it is tagged, the
+results import cannot match it to its Test.
+
+The story tagged on a feature must be a coverable work type in Xray (Settings → Test Coverage:
+currently Épico, História, Tarefa); otherwise the import fails with "is not a coverable issue".
 
 ## Definition of done
 
