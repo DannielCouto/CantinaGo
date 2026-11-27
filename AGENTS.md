@@ -38,7 +38,7 @@ docker compose up --build         # full stack at http://localhost:8000
   Gherkin features are in Portuguese (`# language: pt`).
 - Java: Google Java Style. Frontend: functional components with hooks.
 - Commits: Conventional Commits with the story key, e.g. `feat(SCRUM-54): reserve e-bike`.
-- Branches: `feature/SCRUM-XX-short-name` from `main`; merge only via PR.
+- Branches: `feature/SCRUM-XX-short-name` from `dev`; PR into `dev`, then `dev` into `main`; merge only via PR.
 - REST: plural resources under `/api`, correct status codes, errors as RFC 9457 problem details.
 - Schema changes only through new Flyway migrations (`backend/src/main/resources/db/migration`);
   never edit an applied migration.
