@@ -4,10 +4,10 @@ As regras completas estão no Manual de Qualidade (secções 3 e 4) e, para agen
 [AGENTS.md](AGENTS.md). Resumo:
 
 1. Move a história para **In Progress** no Jira.
-2. Cria o ramo a partir de `main`: `feature/SCRUM-54-reserve-ebike`.
+2. Cria o ramo a partir de `dev`: `feature/SCRUM-54-reserve-ebike`.
 3. Commits pequenos, em inglês, com Conventional Commits e a chave da história:
    `feat(SCRUM-54): reserve e-bike`, `test(SCRUM-54): ...`.
-4. Abre um PR cedo (draft se ainda não estiver pronto), usando o template.
+4. Abre um PR cedo (draft se ainda não estiver pronto), usando o template, com `dev` como base. O `dev` passa para `main` por PR.
 5. A CI tem de passar; responde aos achados do revisor de IA com `ACEITE` ou `REJEITADO: <motivo>`.
 6. Outro membro revê e aprova. Merge por squash; o ramo é apagado.
 
