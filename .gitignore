@@ -36,3 +36,5 @@ coverage/
 
 # Local env
 .env
+
+deliverables/.~lock*
