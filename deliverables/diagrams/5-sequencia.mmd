@@ -1,0 +1,40 @@
+sequenceDiagram
+  actor E as Estafeta
+  participant UI as SPA
+  participant R as rentals
+  participant F as fleet
+  participant P as payments
+  participant G as Gateway sandbox
+  participant T as telemetry
+  participant S as Simulador / broker MQTT
+
+  E->>UI: desbloquear e-bike
+  UI->>R: POST /api/rentals
+  R->>F: verificar disponibilidade e bateria (BR1, BR7)
+  R->>P: cobrar depósito (BR4)
+  P->>G: cobrança
+  G-->>P: aceite
+  R->>F: e-bike passa a "em uso", tranca aberta
+  R-->>UI: 201 uso iniciado
+
+  loop durante o uso
+    S->>T: leitura (bateria, posição, tranca)
+    T->>F: applyTelemetry()
+  end
+
+  E->>UI: terminar uso na estação
+  UI->>R: PATCH /api/rentals/{id}
+  R->>F: estação tem lugar livre? (BR3)
+  alt estação cheia
+    R-->>UI: 409 escolher outra estação
+  else há lugar
+    R->>F: e-bike passa a "disponível" na estação
+    opt duração acima do máximo (BR2)
+      R->>P: cobrar overtime (BR5)
+      P->>G: cobrança
+      G-->>P: aceite
+    end
+    R->>P: devolver depósito se não houver danos (BR4)
+    P->>G: reembolso
+    R-->>UI: 200 uso terminado, valores cobrados
+  end

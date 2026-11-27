@@ -1,0 +1,14 @@
+flowchart LR
+  browser["Browser"]
+  subgraph host["Host Docker Compose"]
+    fe["frontend<br/>Nginx + build Vite<br/>:80"]
+    be["backend<br/>Spring Boot, Java 21<br/>:8080"]
+    db[("db<br/>postgres:16-alpine<br/>:5432")]
+    br{{"broker<br/>eclipse-mosquitto:2<br/>:1883"}}
+    sim["simulator<br/>Python"]
+  end
+  browser -->|"HTTP 8000:80"| fe
+  fe -->|"/api, proxy para :8080"| be
+  be -->|"JDBC"| db
+  be -->|"MQTT, subscreve"| br
+  sim -->|"MQTT, publica"| br

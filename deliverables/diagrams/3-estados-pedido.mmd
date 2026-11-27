@@ -1,0 +1,19 @@
+stateDiagram-v2
+  state "por pagar" as PP
+  state "pago" as P
+  state "pronto" as PR
+  state "atribuído" as A
+  state "recolhido" as R
+  state "entregue" as E
+  state "cancelado" as C
+
+  [*] --> PP
+  PP --> P : pagamento aceite no gateway
+  PP --> C : pagamento recusado ou abandonado
+  P --> PR : staff marca como pronto
+  P --> C : cliente cancela antes da preparação (reembolso)
+  PR --> A : estafeta aceita [BR8, BR17]
+  A --> R : staff lê o QR de recolha
+  R --> E : estafeta introduz o código de entrega
+  E --> [*]
+  C --> [*]
