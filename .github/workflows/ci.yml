@@ -125,7 +125,7 @@ jobs:
             "issuetype": {"name": "Test Execution"}
           }}
           JSON
-          curl -fsS -H "Authorization: Bearer $XRAY_TOKEN" -X POST \
+          curl -sS --fail-with-body -H "Authorization: Bearer $XRAY_TOKEN" -X POST \
             -F "results=@reports/cucumber/cucumber.json" -F "info=@info.json" \
             "$XRAY_URL/import/execution/cucumber/multipart"
       - name: Import JUnit results (unit and integration tests)
@@ -141,7 +141,7 @@ jobs:
                   root.append(suite)
           ET.ElementTree(root).write("junit.xml", encoding="utf-8", xml_declaration=True)
           PY
-          curl -fsS -H "Authorization: Bearer $XRAY_TOKEN" -H "Content-Type: text/xml" -X POST \
+          curl -sS --fail-with-body -H "Authorization: Bearer $XRAY_TOKEN" -H "Content-Type: text/xml" -X POST \
             --data-binary @junit.xml "$XRAY_URL/import/execution/junit?projectKey=$JIRA_PROJECT"
 
   dependency-review:
