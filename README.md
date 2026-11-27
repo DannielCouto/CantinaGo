@@ -198,3 +198,16 @@ docker compose up --build   # http://localhost:8000 (frontend) · http://localho
 Testes: `mvn verify` em `backend/` (unitários, integração com Testcontainers e Cucumber em
 português) e `npm test` em `frontend/`. Ver [CONTRIBUTING.md](CONTRIBUTING.md) e [AGENTS.md](AGENTS.md).
 
+
+## Git workflow
+
+Usamos dois ramos permanentes:
+
+- `main`: versão estável.
+- `dev`: integração das features.
+
+1. Cria o ramo da feature a partir de `dev`: `feature/SCRUM-XX-short-name`.
+2. Abre o PR da feature para `dev`.
+3. Depois de integrado e validado em `dev`, abre o PR de `dev` para `main`.
+
+Não há commits diretos em `main` nem em `dev`.
