@@ -1,0 +1,119 @@
+classDiagram
+  direction LR
+  class Utilizador {
+    nome
+    email
+    papéis
+  }
+  class Estafeta {
+    númeroEstudante
+    estadoCandidatura
+    disponível
+    /ganhos
+  }
+  class Estacao {
+    nome
+    localização
+    capacidade
+  }
+  class EBike {
+    código
+    tipo
+    estado
+    bateria
+    posição
+    tranca
+  }
+  class Reserva {
+    criadaEm
+    expiraEm
+    estado
+  }
+  class Uso {
+    início
+    fim
+    limiteDuração
+  }
+  class Cobranca {
+    tipo
+    valor
+    estado
+    referênciaGateway
+  }
+  class TicketManutencao {
+    gravidade
+    descrição
+    abertoEm
+    prazoSLA
+    fechadoEm
+    intervenção
+  }
+  class LeituraTelemetria {
+    instante
+    bateria
+    posição
+    tranca
+    eventoAvaria
+  }
+  class PontoDeVenda {
+    nome
+    horárioFuncionamento
+    horárioEncomendas
+  }
+  class Produto {
+    nome
+    preço
+    disponível
+  }
+  class Pedido {
+    estado
+    horaEntrega
+    qrRecolha
+    códigoEntrega
+    totalProdutos
+    taxaEntrega
+    gorjeta
+  }
+  class LinhaPedido {
+    quantidade
+  }
+  class LocalEntrega {
+    edifício
+    sala
+    morada
+    coordenadas
+  }
+  class RegrasDeUso {
+    duraçãoMáxima
+    bateriaMínima
+    depósito
+    overtime
+    prazosSLA
+    zonaServiço
+    taxasEntrega
+    horárioServiço
+    limitePedidos
+    tempoAceitação
+  }
+
+  Utilizador <|-- Estafeta
+  Estafeta "1" --> "*" Reserva : faz
+  Reserva "*" --> "1" EBike : reserva
+  Estafeta "1" --> "*" Uso : realiza
+  Uso "*" --> "1" EBike : usa
+  Uso "*" --> "1" Estacao : origem
+  Uso "*" --> "0..1" Estacao : destino
+  Estacao "0..1" o-- "*" EBike : aloja
+  EBike "1" *-- "*" LeituraTelemetria
+  EBike "1" --> "*" TicketManutencao
+  TicketManutencao "*" --> "0..1" Utilizador : técnico
+  Uso "0..1" --> "*" Cobranca : gera
+  Pedido "0..1" --> "*" Cobranca : gera
+  Utilizador "1" --> "*" Pedido : cliente
+  Estafeta "0..1" --> "*" Pedido : entrega
+  PontoDeVenda "1" --> "*" Pedido : recebe
+  PontoDeVenda "1" *-- "*" Produto
+  PontoDeVenda "*" --> "*" Utilizador : staff
+  Pedido "1" *-- "1..*" LinhaPedido
+  LinhaPedido "*" --> "1" Produto
+  Pedido "1" *-- "1" LocalEntrega

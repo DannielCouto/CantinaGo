@@ -1,0 +1,21 @@
+stateDiagram-v2
+  state "disponível" as D
+  state "reservada" as R
+  state "em uso" as U
+  state "manutenção" as M
+  state "retirada" as X
+
+  [*] --> D : registo
+  D --> R : estafeta reserva [BR1, BR7]
+  R --> D : reserva expira ou é cancelada [BR6]
+  R --> U : estafeta da reserva desbloqueia [BR7]
+  D --> U : desbloqueio sem reserva [BR1, BR7]
+  U --> D : fim de uso em estação com lugar [BR3]
+  D --> M : desativação ou avaria [BR12]
+  R --> M : desativação ou avaria [BR12]
+  U --> M : desativação ou avaria [BR12]
+  M --> D : ticket fechado ou operador ativa
+  D --> X : operador retira
+  R --> X : operador retira
+  M --> X : operador retira
+  X --> [*]
