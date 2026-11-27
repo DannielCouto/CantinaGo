@@ -101,6 +101,8 @@ jobs:
       - name: Skip when Xray credentials are not configured
         if: env.XRAY_CLIENT_ID == ''
         run: echo "XRAY_CLIENT_ID/XRAY_CLIENT_SECRET not set; skipping import."
+      - uses: actions/checkout@v7
+        if: env.XRAY_CLIENT_ID != ''
       - uses: actions/download-artifact@v8
         if: env.XRAY_CLIENT_ID != ''
         with:
@@ -114,6 +116,15 @@ jobs:
             "$XRAY_URL/authenticate" | tr -d '"')
           echo "::add-mask::$token"
           echo "XRAY_TOKEN=$token" >> "$GITHUB_ENV"
+      - name: Import feature files (creates or updates the Xray Tests)
+        if: env.XRAY_CLIENT_ID != ''
+        run: |
+          # Results can only be matched to existing Tests, so sync the scenarios first.
+          # The response lists the Test keys; tag each scenario with its key (AGENTS.md).
+          (cd backend/src/test/resources/features && zip -qr "$GITHUB_WORKSPACE/features.zip" .)
+          curl -sS --fail-with-body -H "Authorization: Bearer $XRAY_TOKEN" -X POST \
+            -F "file=@features.zip" \
+            "$XRAY_URL/import/feature?projectKey=$JIRA_PROJECT"
       - name: Import Cucumber results (acceptance tests)
         if: env.XRAY_CLIENT_ID != ''
         run: |
