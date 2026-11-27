@@ -1,0 +1,23 @@
+flowchart TB
+  user["Browser: cliente, estafeta, staff, operador, gestor, admin"]
+  spa["Frontend: SPA React (Vite)"]
+  sim["Simulador de frota (Python)"]
+  broker{{"Broker MQTT (Mosquitto)"}}
+  subgraph mono["Backend: monólito modular Spring Boot"]
+    api["API REST /api"]
+    tel["telemetry<br/>porta + adaptador MQTT"]
+    dom["Módulos de domínio<br/>accounts · fleet · rentals · maintenance<br/>catalog · orders · backoffice<br/>(interfaces Java e eventos internos)"]
+    pay["payments<br/>porta + adaptador do gateway"]
+    api --> dom
+    tel -->|"estado da frota"| dom
+    dom --> pay
+  end
+  db[("PostgreSQL")]
+  gw["Gateway de pagamento (sandbox)"]
+
+  user --> spa
+  spa -->|"HTTP/JSON"| api
+  sim -->|"publica cantinago/telemetry/{code}"| broker
+  broker -->|"subscrição"| tel
+  dom -->|"JPA"| db
+  pay -->|"HTTPS"| gw
