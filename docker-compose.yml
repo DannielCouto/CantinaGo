@@ -1,0 +1,57 @@
+# CantinaGo: full stack (Product Specs, 4.4).
+#   docker compose up --build    ->  http://localhost:8000
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cantinago
+      POSTGRES_USER: cantinago
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-cantinago}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cantinago -d cantinago"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  broker:
+    image: eclipse-mosquitto:2
+    volumes:
+      - ./infra/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    ports:
+      - "1883:1883"
+
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/cantinago
+      DB_USER: cantinago
+      DB_PASSWORD: ${DB_PASSWORD:-cantinago}
+      MQTT_URL: tcp://broker:1883
+    depends_on:
+      db:
+        condition: service_healthy
+      broker:
+        condition: service_started
+    ports:
+      - "8080:8080"
+
+  simulator:
+    build: ./simulator
+    environment:
+      MQTT_HOST: broker
+      TICK_SECONDS: "5"
+    depends_on:
+      - broker
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8000:80"
+
+volumes:
+  db-data:
