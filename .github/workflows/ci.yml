@@ -101,7 +101,7 @@ jobs:
       - name: Skip when Xray credentials are not configured
         if: env.XRAY_CLIENT_ID == ''
         run: echo "XRAY_CLIENT_ID/XRAY_CLIENT_SECRET not set; skipping import."
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         if: env.XRAY_CLIENT_ID != ''
         with:
           name: backend-test-reports
