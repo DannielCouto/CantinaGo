@@ -1,4 +1,7 @@
 # CantinaGo
+
+[![CI](https://github.com/DannielCouto/CantinaGo/actions/workflows/ci.yml/badge.svg)](https://github.com/DannielCouto/CantinaGo/actions/workflows/ci.yml)
+
 Trabalho para a disciplina TQS - UA
 
 
@@ -165,3 +168,33 @@ No fim do mês, a Marta abre o painel de indicadores: vê o número de entregas,
 | **QA Engineer** | Alan Marques | Promove as práticas de QA em conjunto com os outros papéis; configura as ferramentas que medem a qualidade; verifica que a equipa segue as práticas acordadas, incluindo as regras de uso de IA |
 | **DevOps Master** | Ricardo Rebelo | Responsável pela infraestrutura de desenvolvimento e produção: repositório, pipelines, contentores, ambiente de deployment, bases de dados |
 | **Developer** | Todos (Daniel Couto, Ricardo Rebelo, Alan Marques) | Implementa e testa histórias; as contribuições são registadas através de pull requests e commits |
+
+
+## Walking skeleton
+
+Fatia mínima que atravessa todos os blocos da arquitetura (Product Specs, 4.3 e 4.4):
+
+```
+simulador ──MQTT──▶ broker ──▶ backend (adaptador de telemetria ─▶ frota) ──▶ PostgreSQL
+                                   ▲
+frontend (React, Nginx) ──/api─────┘   GET /api/stations, GET /api/stations/{id}/ebikes
+```
+
+O simulador publica leituras de bateria das 30 e-bikes; o backend atualiza o estado e a página
+mostra só as e-bikes reserváveis (BR1: disponível e bateria ≥ 20 %), atualizada a cada 5 s.
+
+```bash
+docker compose up --build   # http://localhost:8000 (frontend) · http://localhost:8080/actuator/health
+```
+
+| Contentor   | Tecnologia                         | Porta |
+|-------------|------------------------------------|-------|
+| `frontend`  | React + Vite, servido por Nginx    | 8000  |
+| `backend`   | Spring Boot 4, Java 21             | 8080  |
+| `db`        | PostgreSQL 16 (Flyway + dados de referência) | — |
+| `broker`    | Eclipse Mosquitto (MQTT)           | 1883  |
+| `simulator` | Python, paho-mqtt                  | —     |
+
+Testes: `mvn verify` em `backend/` (unitários, integração com Testcontainers e Cucumber em
+português) e `npm test` em `frontend/`. Ver [CONTRIBUTING.md](CONTRIBUTING.md) e [AGENTS.md](AGENTS.md).
+
